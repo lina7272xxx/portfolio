@@ -190,18 +190,20 @@
             color: var(--text-light);
         }
         
-        /* Projets */
+        /* Veille Technologique - CENTRÉE */
         #projects {
             background-color: var(--secondary-black);
         }
         
         .project-card {
-            margin-bottom: 30px;
+            margin: 0 auto 30px auto;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             transition: all 0.4s ease;
             background-color: var(--accent-black);
+            width: 600px;
+            height: 450px;
         }
         
         .project-card:hover {
@@ -217,6 +219,7 @@
         
         .project-content {
             padding: 25px;
+            text-align: center;
         }
         
         /* Comptes rendus */
@@ -227,10 +230,11 @@
         .report-item {
             background-color: var(--accent-black);
             border-radius: 10px;
-            padding: 20px;
+            padding: 30px;
             margin-bottom: 20px;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
         
         .report-item:hover {
@@ -391,6 +395,11 @@
             .contact-form {
                 padding: 25px;
             }
+            
+            .project-card {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -414,7 +423,7 @@
                         <a class="nav-link" href="#skills">Compétences</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projets</a>
+                        <a class="nav-link" href="#projects">Veille Technologique</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#reports">Comptes Rendus</a>
@@ -574,38 +583,19 @@
         </div>
     </section>
 
-    <!-- Projets -->
+    <!-- Veille Technologique - CENTRÉE -->
     <section id="projects">
         <div class="container">
-            <h2 class="section-title">Mes projets</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
+            <h2 class="section-title">Veille Technologique</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1611348586807-2c6c2d0c7863?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="project-img" alt="Projet bijouterie">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="project-img" alt="Veille Technologique">
                         <div class="project-content">
-                            <h4>Création de bijoux</h4>
-                            <p>Conception et réalisation de bijoux dans le cadre d'un stage en bijouterie.</p>
-                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#projectModal1">Voir plus</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="project-img" alt="Projet encadrement">
-                        <div class="project-content">
-                            <h4>Encadrement d'enfants</h4>
-                            <p>Animation et encadrement d'enfants de 3 à 14 ans en centre de loisirs.</p>
-                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#projectModal2">Voir plus</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="project-img" alt="Projet langues">
-                        <div class="project-content">
-                            <h4>Apprentissage de langues</h4>
-                            <p>Développement de compétences en anglais, italien et coréen.</p>
-                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#projectModal3">Voir plus</button>
+                            <h2>Veille Technologique</h2>
+                            <h5>LE METAVERSE</h5>
+                            <p>Réalisation d'une veille technologique sur le metaverse.</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal2">Voir plus</button>
                         </div>
                     </div>
                 </div>
@@ -613,41 +603,17 @@
         </div>
     </section>
 
-    <!-- Comptes rendus -->
+    <!-- Comptes rendus - CENTRÉ -->
     <section id="reports">
         <div class="container">
             <h2 class="section-title">Comptes Rendus</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="report-item">
-                        <h4>Stage en Bijouterie</h4>
-                        <p class="text-muted">Janvier 2023 - Bar à Bijoux</p>
-                        <p>Compte rendu détaillé de mon stage en bijouterie avec analyse des processus de création et de vente.</p>
-                        <a href="#" class="btn btn-sm btn-primary">Lire le compte rendu</a>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="report-item">
-                        <h4>Stage BAFA</h4>
-                        <p class="text-muted">Juillet 2022 - Centre de loisir de Tallard</p>
-                        <p>Retour d'expérience sur mon stage BAFA avec analyse des méthodes d'animation et d'encadrement.</p>
-                        <a href="#" class="btn btn-sm btn-primary">Lire le compte rendu</a>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="report-item">
-                        <h4>Projet Personnel Linguistique</h4>
-                        <p class="text-muted">2022-2023</p>
-                        <p>Documentation de mon parcours d'apprentissage des langues étrangères et méthodes utilisées.</p>
-                        <a href="#" class="btn btn-sm btn-primary">Lire le compte rendu</a>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
                     <div class="report-item">
                         <h4>BTS SIO</h4>
                         <p class="text-muted">2025-2027</p>
-                        <p>Comptes rendus de TP.</p>
-                        <a href="indexp2.html" class="btn btn-sm btn-primary">Lire le compte rendu</a>
+                        <p>Comptes rendus de travaux pratiques et projets réalisés dans le cadre de mon BTS Services Informatiques aux Organisations.</p>
+                        <a href="indexp2.html" class="btn btn-primary">Voir les comptes rendus</a>
                     </div>
                 </div>
             </div>
@@ -739,52 +705,18 @@
     </footer>
 
     <!-- Modals pour les projets -->
-    <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h5 class="modal-title">Création de bijoux</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1611348586807-2c6c2d0c7863?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="img-fluid mb-4 rounded" alt="Projet bijouterie">
-                    <p>Dans le cadre de mon stage en bijouterie (Bar à Bijoux), j'ai participé à la création de divers bijoux. J'ai appris les techniques de base de la bijouterie et développé ma créativité.</p>
-                    <p><strong>Compétences développées:</strong> Créativité, précision, sens esthétique</p>
-                    <p><strong>Réalisation:</strong> Conception de plusieurs modèles de bracelets et colliers</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content bg-dark">
                 <div class="modal-header">
-                    <h5 class="modal-title">Encadrement d'enfants</h5>
+                    <h5 class="modal-title">Veille Technologique - Métaverse</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="img-fluid mb-4 rounded" alt="Projet encadrement">
-                    <p>Lors de mon stage BAFA au centre de loisir de Tallard (ALSH), j'ai encadré des enfants âgés de 3 à 14 ans. J'ai organisé et animé des activités adaptées à chaque tranche d'âge.</p>
-                    <p><strong>Compétences développées:</strong> Sens du contact, communication, esprit d'équipe</p>
-                    <p><strong>Réalisation:</strong> Organisation d'une journée spéciale avec jeux et activités créatives</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h5 class="modal-title">Apprentissage de langues</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="img-fluid mb-4 rounded" alt="Projet langues">
-                    <p>Passionné par les langues étrangères, j'ai développé des compétences en anglais, italien et coréen. Cet apprentissage me permet de m'ouvrir à d'autres cultures et de communiquer avec des personnes du monde entier.</p>
-                    <p><strong>Niveaux:</strong> Anglais (intermédiaire), Italien (intermédiaire), Coréen (débutant)</p>
-                    <p><strong>Méthodes:</strong> Applications mobiles, cours en ligne, pratique avec des locuteurs natifs</p>
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="img-fluid mb-4 rounded" alt="Veille Technologique">
+                    <p>Réalisation d'une veille technologique complète sur le métaverse, explorant les dernières innovations, tendances et développements dans cet écosystème en constante évolution.</p>
+                    <p><strong>Veille Technologique</strong></p>
+                    <p><strong><a href="veille.html" class="btn btn-primary">Accéder à la veille technologique sur le Metaverse</a></strong></p>
                 </div>
             </div>
         </div>
@@ -797,5 +729,15 @@
         // Initialisation de Typed.js pour l'effet d'écriture
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed('.typed-text', {
-                strings: ["motivé", "curieux", "adaptable", "créatif",
+                strings: ["motivé", "curieux", "adaptable", "créatif"],
+                typeSpeed: 50,
+                backSpeed: 30,
+                backDelay: 2000,
+                loop: true
+            });
+        });
+    </script>
+</body>
+</html>
+
 
