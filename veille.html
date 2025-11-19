@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique - Métaverse</title>
+    <style>
+        :root {
+            --primary-black: #121212;
+            --secondary-black: #1e1e1e;
+            --accent-black: #2d2d2d;
+            --text-light: #f1f1f1;
+            --accent-color: #e6007e;
+            --accent-hover: #ff3399;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: var(--primary-black);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .controls {
+            background: var(--accent-black);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+        
+        select, input, button {
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: var(--secondary-black);
+            color: var(--text-light);
+        }
+        
+        button {
+            background: var(--accent-color);
+            color: var(--text-light);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+            padding: 10px 20px;
+        }
+        
+        button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        
+        .table-container {
+            background: var(--accent-black);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        thead {
+            background: var(--accent-color);
+            color: var(--text-light);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        
+        th {
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        th:hover {
+            background: var(--accent-hover);
+        }
+        
+        tbody tr:hover {
+            background: rgba(230, 0, 126, 0.1);
+        }
+        
+        .impact-high {
+            background: rgba(198, 40, 40, 0.2);
+            color: #ff6b6b;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #ff6b6b;
+        }
+        
+        .impact-medium {
+            background: rgba(239, 108, 0, 0.2);
+            color: #ffa726;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #ffa726;
+        }
+        
+        .impact-low {
+            background: rgba(46, 125, 50, 0.2);
+            color: #66bb6a;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #66bb6a;
+        }
+        
+        .add-form {
+            background: var(--accent-black);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .empty-message {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-style: italic;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: var(--secondary-black);
+            color: var(--text-light);
+            resize: vertical;
+        }
+
+        /* Barre de défilement personnalisée */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-black);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            th, td {
+                padding: 10px 5px;
+                font-size: 0.9rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Veille Technologique - Métaverse</h1>
+            <p class="subtitle">Suivi des innovations et tendances dans l'écosystème du métaverse</p>
+        </header>
+        
+        <div class="controls">
+            <div class="filter-group">
+                <label for="category-filter">Catégorie</label>
+                <select id="category-filter">
+                    <option value="all">Toutes les catégories</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Économie Numérique">Économie Numérique</option>
+                    <option value="Outils de Création">Outils de Création</option>
+                    <option value="Infrastructures">Infrastructures</option>
+                    <option value="Plateformes">Plateformes</option>
+                    <option value="Cas d'Usage">Cas d'Usage</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="impact-filter">Impact</label>
+                <select id="impact-filter">
+                    <option value="all">Tous les niveaux</option>
+                    <option value="Élevé">Élevé</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Faible">Faible</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="search">Recherche</label>
+                <input type="text" id="search" placeholder="Mot-clé...">
+            </div>
+            
+            <button id="add-entry">+ Ajouter une entrée</button>
+            <button id="reset-filters">Réinitialiser</button>
+        </div>
+        
+        <div class="table-container">
+            <table id="tech-watch-table">
+                <thead>
+                    <tr>
+                        <th data-sort="date">Date</th>
+                        <th data-sort="source">Source</th>
+                        <th data-sort="category">Catégorie</th>
+                        <th data-sort="subject">Sujet/Innovation</th>
+                        <th data-sort="description">Description</th>
+                        <th data-sort="actors">Acteurs Principaux</th>
+                        <th data-sort="impact">Impact</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Les données seront insérées ici par JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="add-form" id="add-form">
+            <h3>Ajouter une nouvelle entrée</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="new-date">Date</label>
+                    <input type="date" id="new-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-source">Source</label>
+                    <input type="text" id="new-source" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-category">Catégorie</label>
+                    <select id="new-category" required>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Économie Numérique">Économie Numérique</option>
+                        <option value="Outils de Création">Outils de Création</option>
+                        <option value="Infrastructures">Infrastructures</option>
+                        <option value="Plateformes">Plateformes</option>
+                        <option value="Cas d'Usage">Cas d'Usage</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="new-subject">Sujet/Innovation</label>
+                    <input type="text" id="new-subject" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="new-description">Description</label>
+                    <textarea id="new-description" rows="3" required></textarea>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="new-actors">Acteurs Principaux</label>
+                    <input type="text" id="new-actors" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-impact">Impact</label>
+                    <select id="new-impact" required>
+                        <option value="Élevé">Élevé</option>
+                        <option value="Moyen">Moyen</option>
+                        <option value="Faible">Faible</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-buttons">
+                <button id="cancel-add">Annuler</button>
+                <button id="save-entry">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Données initiales du tableau
+        let tableData = [
+            {
+                date: '2024-11-15',
+                source: 'TechCrunch',
+                category: 'Hardware',
+                subject: 'Lancement du nouveau casque VR',
+                description: 'Meta annonce le Quest 4 avec eye-tracking avancé et résolution 8K.',
+                actors: 'Meta',
+                impact: 'Élevé'
+            },
+            {
+                date: '2024-11-10',
+                source: 'Decrypt',
+                category: 'Économie Numérique',
+                subject: 'Partenariat dans le métaverse',
+                description: 'The Sandbox et Gucci lancent une expérience shopping immersive avec NFT exclusifs.',
+                actors: 'The Sandbox, Gucci',
+                impact: 'Moyen'
+            },
+            {
+                date: '2024-11-05',
+                source: 'NVIDIA Blog',
+                category: 'Outils de Création',
+                subject: 'Mise à jour d\'Omniverse',
+                description: 'NVIDIA Omniverse intègre de nouvelles bibliothèques d\'IA pour la génération de textures.',
+                actors: 'NVIDIA',
+                impact: 'Élevé'
+            },
+            {
+                date: '2024-10-28',
+                source: 'CoinDesk',
+                category: 'Infrastructures',
+                subject: 'Nouveau protocole d\'interopérabilité',
+                description: 'Lancement du protocole "CrossVerse" permettant le transfert d\'avatars entre Decentraland et Somnium Space.',
+                actors: 'Fondation CrossVerse',
+                impact: 'Élevé'
+            },
+            {
+                date: '2024-10-20',
+                source: 'The Verge',
+                category: 'Plateformes',
+                subject: 'Événement en direct',
+                description: 'Concert de l\'artiste "X" sur Fortnite avec interaction haptique pour les utilisateurs de Quest.',
+                actors: 'Fortnite (Epic Games)',
+                impact: 'Moyen'
+            },
+            {
+                date: '2024-10-10',
+                source: 'UploadVR',
+                category: 'Cas d\'Usage',
+                subject: 'Application de thérapie',
+                description: 'Démonstration d\'une application de réalité virtuelle pour traiter les phobies, validée par une étude clinique.',
+                actors: 'Osso VR',
+                impact: 'Élevé'
+            }
+        ];
+
+        // Éléments DOM
+        const tableBody = document.getElementById('table-body');
+        const categoryFilter = document.getElementById('category-filter');
+        const impactFilter = document.getElementById('impact-filter');
+        const searchInput = document.getElementById('search');
+        const addEntryBtn = document.getElementById('add-entry');
+        const resetFiltersBtn = document.getElementById('reset-filters');
+        const addForm = document.getElementById('add-form');
+        const cancelAddBtn = document.getElementById('cancel-add');
+        const saveEntryBtn = document.getElementById('save-entry');
+
+        // Variables pour le tri
+        let sortColumn = 'date';
+        let sortDirection = 'desc';
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTable();
+            setupEventListeners();
+        });
+
+        // Configuration des écouteurs d'événements
+        function setupEventListeners() {
+            categoryFilter.addEventListener('change', renderTable);
+            impactFilter.addEventListener('change', renderTable);
+            searchInput.addEventListener('input', renderTable);
+            addEntryBtn.addEventListener('click', showAddForm);
+            cancelAddBtn.addEventListener('click', hideAddForm);
+            saveEntryBtn.addEventListener('click', saveNewEntry);
+            resetFiltersBtn.addEventListener('click', resetFilters);
+            
+            // Écouteurs pour le tri des colonnes
+            document.querySelectorAll('th[data-sort]').forEach(th => {
+                th.addEventListener('click', () => {
+                    const column = th.getAttribute('data-sort');
+                    if (sortColumn === column) {
+                        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        sortColumn = column;
+                        sortDirection = 'asc';
+                    }
+                    renderTable();
+                });
+            });
+        }
+
+        // Rendu du tableau
+        function renderTable() {
+            const categoryValue = categoryFilter.value;
+            const impactValue = impactFilter.value;
+            const searchValue = searchInput.value.toLowerCase();
+            
+            // Filtrer les données
+            let filteredData = tableData.filter(item => {
+                const matchesCategory = categoryValue === 'all' || item.category === categoryValue;
+                const matchesImpact = impactValue === 'all' || item.impact === impactValue;
+                const matchesSearch = searchValue === '' || 
+                    item.subject.toLowerCase().includes(searchValue) ||
+                    item.description.toLowerCase().includes(searchValue) ||
+                    item.actors.toLowerCase().includes(searchValue) ||
+                    item.source.toLowerCase().includes(searchValue);
+                
+                return matchesCategory && matchesImpact && matchesSearch;
+            });
+            
+            // Trier les données
+            filteredData.sort((a, b) => {
+                let aValue = a[sortColumn];
+                let bValue = b[sortColumn];
+                
+                // Traitement spécial pour les dates
+                if (sortColumn === 'date') {
+                    aValue = new Date(aValue);
+                    bValue = new Date(bValue);
+                } else {
+                    // Pour les autres colonnes, conversion en minuscules pour un tri non sensible à la casse
+                    aValue = String(aValue).toLowerCase();
+                    bValue = String(bValue).toLowerCase();
+                }
+                
+                if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+                if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            // Vider le tableau
+            tableBody.innerHTML = '';
+            
+            // Afficher un message si aucun résultat
+            if (filteredData.length === 0) {
+                const emptyRow = document.createElement('tr');
+                emptyRow.innerHTML = `
+                    <td colspan="8" class="empty-message">
+                        Aucune entrée ne correspond aux critères de filtrage.
+                    </td>
+                `;
+                tableBody.appendChild(emptyRow);
+                return;
+            }
+            
+            // Remplir le tableau avec les données filtrées
+            filteredData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                
+                // Déterminer la classe d'impact pour le style
+                let impactClass = '';
+                if (item.impact === 'Élevé') impactClass = 'impact-high';
+                else if (item.impact === 'Moyen') impactClass = 'impact-medium';
+                else if (item.impact === 'Faible') impactClass = 'impact-low';
+                
+                row.innerHTML = `
+                    <td>${formatDate(item.date)}</td>
+                    <td>${item.source}</td>
+                    <td>${item.category}</td>
+                    <td>${item.subject}</td>
+                    <td>${item.description}</td>
+                    <td>${item.actors}</td>
+                    <td><span class="${impactClass}">${item.impact}</span></td>
+                    <td>
+                        <button class="delete-btn" data-index="${index}">Supprimer</button>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // Ajouter des écouteurs d'événements aux boutons de suppression
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    deleteEntry(index);
+                });
+            });
+        }
+
+        // Formater la date au format français
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('fr-FR');
+        }
+
+        // Afficher le formulaire d'ajout
+        function showAddForm() {
+            addForm.style.display = 'block';
+            // Définir la date d'aujourd'hui par défaut
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('new-date').value = today;
+        }
+
+        // Masquer le formulaire d'ajout
+        function hideAddForm() {
+            addForm.style.display = 'none';
+            // Réinitialiser le formulaire
+            document.getElementById('new-date').value = '';
+            document.getElementById('new-source').value = '';
+            document.getElementById('new-category').value = 'Hardware';
+            document.getElementById('new-subject').value = '';
+            document.getElementById('new-description').value = '';
+            document.getElementById('new-actors').value = '';
+            document.getElementById('new-impact').value = 'Élevé';
+        }
+
+        // Sauvegarder une nouvelle entrée
+        function saveNewEntry() {
+            const newDate = document.getElementById('new-date').value;
+            const newSource = document.getElementById('new-source').value;
+            const newCategory = document.getElementById('new-category').value;
+            const newSubject = document.getElementById('new-subject').value;
+            const newDescription = document.getElementById('new-description').value;
+            const newActors = document.getElementById('new-actors').value;
+            const newImpact = document.getElementById('new-impact').value;
+            
+            // Validation basique
+            if (!newDate || !newSource || !newSubject || !newDescription || !newActors) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+            
+            // Ajouter la nouvelle entrée
+            tableData.push({
+                date: newDate,
+                source: newSource,
+                category: newCategory,
+                subject: newSubject,
+                description: newDescription,
+                actors: newActors,
+                impact: newImpact
+            });
+            
+            // Masquer le formulaire et rafraîchir le tableau
+            hideAddForm();
+            renderTable();
+        }
+
+        // Supprimer une entrée
+        function deleteEntry(index) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette entrée ?')) {
+                tableData.splice(index, 1);
+                renderTable();
+            }
+        }
+
+        // Réinitialiser les filtres
+        function resetFilters() {
+            categoryFilter.value = 'all';
+            impactFilter.value = 'all';
+            searchInput.value = '';
+            renderTable();
+        }
+    </script>
+</body>
+</html>
