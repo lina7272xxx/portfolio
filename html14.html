@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices JavaScript - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css14.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-code"></i> Portfolio JavaScript</h1>
+            <p class="subtitle">Exercices des ateliers 11 à 13 - BTS SIO1</p>
+            
+            <div class="student-info">
+                <div class="info-card">
+                    <i class="fas fa-user"></i> Nicolas Lilou
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-user"></i> Pedanou Houefa
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-calendar-alt"></i> Ateliers 11-13
+                </div>
+            </div>
+        </header>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-target="part1">Partie 1 - Bases JS</button>
+            <button class="tab-btn" data-target="part2">Partie 2 - Contrôle</button>
+            <button class="tab-btn" data-target="part3">Partie 3 - DOM</button>
+            <button class="tab-btn" data-target="part4">Partie 4 - Événements</button>
+            <button class="tab-btn" data-target="part5">Partie 5 - Fonctions</button>
+        </div>
+        
+        <!-- PARTIE 1 - BASES JS -->
+        <section id="part1" class="content-section active">
+            <h2><i class="fas fa-play-circle"></i> Partie 1 - Bases de JavaScript</h2>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 1 : Afficher une alerte</h3>
+                    <span class="difficulty easy">Facile</span>
+                </div>
+                <p class="description">Afficher une boîte de dialogue avec le message "I'm JavaScript!"</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Solution JavaScript</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre>alert("I'm JavaScript!");</pre>
+                </div>
+                
+                <div class="solution">
+                    <h4>Explication :</h4>
+                    <p>La fonction <code>alert()</code> affiche une boîte de dialogue modale avec le message spécifié.</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn" onclick="runCode('alert(\"I\\'m JavaScript!\");')">
+                        <i class="fas fa-play"></i> Exécuter
+                    </button>
+                    <button class="btn btn-success" onclick="showCode()">
+                        <i class="fas fa-code"></i> Voir le code
+                    </button>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 2 : Variables et noms corrects</h3>
+                    <span class="difficulty easy">Facile</span>
+                </div>
+                <p class="description">Corriger les noms de variables selon les conventions JavaScript (camelCase).</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Variables corrigées</span>
+                    </div>
+                    <pre>// Avant
+let user_name = "John";
+let UserAge = 25;
+let is_active = true;
+
+// Après (camelCase)
+let userName = "John";
+let userAge = 25;
+let isActive = true;</pre>
+                </div>
+                
+                <div class="solution">
+                    <h4>Règle :</h4>
+                    <p>En JavaScript, on utilise le camelCase pour les variables : premier mot en minuscule, mots suivants avec majuscule initiale.</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 3 : Incrémentation préfixe/postfixe</h3>
+                    <span class="difficulty medium">Moyen</span>
+                </div>
+                <p class="description">Comprendre la différence entre ++a (préfixe) et a++ (postfixe).</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Code d'exemple</span>
+                    </div>
+<pre>let a = 1, b = 1;
+let c = ++a; // a est incrémenté avant, a=2, c=2
+let d = b++; // b est incrémenté après, d=1, b=2
+
+console.log("a:", a); // 2
+console.log("b:", b); // 2
+console.log("c:", c); // 2
+console.log("d:", d); // 1</pre>
+                </div>
+                
+                <div class="solution">
+                    <h4>Résultat :</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li><strong>++a</strong> : Incrémente d'abord, puis retourne la valeur</li>
+                        <li><strong>a++</strong> : Retourne d'abord la valeur, puis incrémente</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PARTIE 2 - STRUCTURES DE CONTRÔLE -->
+        <section id="part2" class="content-section">
+            <h2><i class="fas fa-sitemap"></i> Partie 2 - Structures de contrôle</h2>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 4 : Le nom officiel de JavaScript</h3>
+                    <span class="difficulty easy">Facile</span>
+                </div>
+                <p class="description">Demander à l'utilisateur le nom officiel de JavaScript et vérifier la réponse.</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Solution avec if...else</span>
+                    </div>
+<pre>let reponse = prompt("Quel est le nom officiel de JavaScript?");
+if (reponse === "ECMAScript") {
+    alert("Bonne réponse !");
+} else {
+    alert("Ne sais pas ? ECMAScript !");
+}</pre>
+                </div>
+                
+                <div class="solution">
+                    <h4>Version avec opérateur ternaire :</h4>
+                    <div class="code-container">
+                        <pre>let result = prompt("Quel est le nom officiel de JavaScript?") === "ECMAScript" 
+    ? "Bonne réponse !" 
+    : "Ne sais pas ? ECMAScript !";
+alert(result);</pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 5 : Afficher le signe d'un nombre</h3>
+                    <span class="difficulty medium">Moyen</span>
+                </div>
+                <p class="description">Demander un nombre et afficher 1, -1 ou 0 selon son signe.</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Solution complète</span>
+                    </div>
+<pre>let nombre = prompt("Entrez un nombre:");
+nombre = Number(nombre);
+
+if (nombre > 0) {
+    alert(1);
+} else if (nombre < 0) {
+    alert(-1);
+} else {
+    alert(0);
+}</pre>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 6 : Opérateurs logiques (&& et ||)</h3>
+                    <span class="difficulty medium">Moyen</span>
+                </div>
+                <p class="description">Comprendre le comportement des opérateurs logiques en JavaScript.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Expression</th>
+                            <th>Résultat</th>
+                            <th>Explication</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>alert(1 && null && 2)</code></td>
+                            <td><code>null</code></td>
+                            <td>&& retourne le premier falsy rencontré</td>
+                        </tr>
+                        <tr>
+                            <td><code>alert(null || 2 && 3 || 4)</code></td>
+                            <td><code>3</code></td>
+                            <td>Priorité de &&, puis retourne le premier truthy</td>
+                        </tr>
+                        <tr>
+                            <td><code>alert((1) && alert(2))</code></td>
+                            <td>Affiche 2 puis undefined</td>
+                            <td>alert(2) s'exécute mais retourne undefined</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- PARTIE 3 - DOM -->
+        <section id="part3" class="content-section">
+            <h2><i class="fas fa-code-branch"></i> Partie 3 - Manipulation du DOM</h2>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 7 : Sélectionner éléments DOM</h3>
+                    <span class="difficulty easy">Facile</span>
+                </div>
+                <p class="description">Différentes méthodes pour sélectionner des éléments dans le DOM.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Élément à sélectionner</th>
+                            <th>Méthode 1</th>
+                            <th>Méthode 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Premier &lt;div&gt;</td>
+                            <td><code>document.querySelector('div')</code></td>
+                            <td><code>document.getElementsByTagName('div')[0]</code></td>
+                        </tr>
+                        <tr>
+                            <td>Premier &lt;ul&gt;</td>
+                            <td><code>document.querySelector('ul')</code></td>
+                            <td><code>document.querySelector('div + ul')</code></td>
+                        </tr>
+                        <tr>
+                            <td>Deuxième &lt;li&gt; (Pete)</td>
+                            <td><code>document.querySelectorAll('li')[1]</code></td>
+                            <td><code>document.querySelector('ul li:nth-child(2)')</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 8 : Colorer les diagonales d'un tableau</h3>
+                    <span class="difficulty medium">Moyen</span>
+                </div>
+                <p class="description">Colorer en rouge toutes les cellules de la diagonale principale d'un tableau.</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Solution JavaScript</span>
+                    </div>
+<pre>let table = document.querySelector('table');
+for (let i = 0; i < table.rows.length; i++) {
+    let td = table.rows[i].cells[i];
+    if (td) {
+        td.style.backgroundColor = 'red';
+    }
+}</pre>
+                </div>
+                
+                <div class="solution">
+                    <h4>Explication :</h4>
+                    <p>On parcourt chaque ligne (rows) et on prend la cellule à l'index i (cells[i]), qui correspond à la diagonale.</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 9 : Recherche d'éléments spécifiques</h3>
+                    <span class="difficulty medium">Moyen</span>
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Code de recherche</span>
+                    </div>
+<pre>// 1. Tableau avec id="age-table"
+let table = document.getElementById('age-table');
+
+// 2. Tous les éléments label dans ce tableau
+let labels = table.querySelectorAll('label');
+
+// 3. Premier td dans ce tableau
+let firstTd = table.querySelector('td');
+
+// 4. Formulaire avec name="search"
+let form = document.querySelector('form[name="search"]');
+
+// 5. Premier input dans ce formulaire
+let firstInput = form.querySelector('input');
+
+// 6. Dernier input dans ce formulaire
+let inputs = form.querySelectorAll('input');
+let lastInput = inputs[inputs.length - 1];</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PARTIE 4 - ÉVÉNEMENTS -->
+        <section id="part4" class="content-section">
+            <h2><i class="fas fa-mouse-pointer"></i> Partie 4 - Événements et Interactions</h2>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 10 : Horloge colorée avec setInterval</h3>
+                    <span class="difficulty medium">Moyen</span>
+                </div>
+                <p class="description">Créer une horloge numérique avec boutons Start/Stop.</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Fonctionnalité complète</span>
+                    </div>
+<pre>let timer = null;
+
+function updateClock() {
+    const now = new Date();
+    document.getElementById('hours').textContent = 
+        String(now.getHours()).padStart(2, '0');
+    document.getElementById('minutes').textContent = 
+        String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('seconds').textContent = 
+        String(now.getSeconds()).padStart(2, '0');
+}
+
+function startClock() {
+    if (!timer) {
+        updateClock();
+        timer = setInterval(updateClock, 1000);
+    }
+}
+
+function stopClock() {
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+    }
+}
+
+// Écouteurs d'événements
+document.getElementById('startBtn').onclick = startClock;
+document.getElementById('stopBtn').onclick = stopClock;</pre>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-warning" onclick="showClockDemo()">
+                        <i class="fas fa-clock"></i> Voir la démo
+                    </button>
+                </div>
+                
+                <div id="clock-demo" style="display: none; margin-top: 20px;">
+                    <div style="background: #2d2d2d; color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 2.5rem; font-family: monospace;" id="demo-clock">00:00:00</div>
+                        <div style="margin-top: 15px;">
+                            <button onclick="startDemoClock()" class="demo-btn start">Start</button>
+                            <button onclick="stopDemoClock()" class="demo-btn stop">Stop</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 11 : Déplacer un ballon avec la souris</h3>
+                    <span class="difficulty hard">Difficile</span>
+                </div>
+                <p class="description">Cliquer sur un terrain pour déplacer un ballon à cet endroit.</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Code principal</span>
+                    </div>
+<pre>let field = document.getElementById('field');
+let ball = document.getElementById('ball');
+
+field.addEventListener('click', function(event) {
+    // Coordonnées relatives au champ
+    let x = event.clientX - field.getBoundingClientRect().left 
+            - field.clientLeft - ball.offsetWidth / 2;
+    let y = event.clientY - field.getBoundingClientRect().top 
+            - field.clientTop - ball.offsetHeight / 2;
+    
+    // Limites pour ne pas sortir du champ
+    x = Math.max(0, Math.min(x, field.clientWidth - ball.offsetWidth));
+    y = Math.max(0, Math.min(y, field.clientHeight - ball.offsetHeight));
+    
+    // Déplacement
+    ball.style.left = x + 'px';
+    ball.style.top = y + 'px';
+});</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PARTIE 5 - FONCTIONS -->
+        <section id="part5" class="content-section">
+            <h2><i class="fas fa-cogs"></i> Partie 5 - Fonctions et Méthodes</h2>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 12 : Fonction pow(x, n)</h3>
+                    <span class="difficulty medium">Moyen</span>
+                </div>
+                <p class="description">Créer une fonction qui élève x à la puissance n.</p>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Différentes implémentations</span>
+                    </div>
+<pre>// Version avec ** (ES7)
+function pow(x, n) {
+    return x ** n;
+}
+
+// Version avec boucle
+function powLoop(x, n) {
+    let result = 1;
+    for (let i = 0; i < n; i++) {
+        result *= x;
+    }
+    return result;
+}
+
+// Version récursive
+function powRecursive(x, n) {
+    if (n === 1) return x;
+    return x * powRecursive(x, n - 1);
+}</pre>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 13 : Fonction checkAge (ternaire vs ||)</h3>
+                    <span class="difficulty easy">Facile</span>
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Version originale</span>
+                    </div>
+<pre>function checkAge(age) {
+    if (age > 18) {
+        return true;
+    } else {
+        return confirm('Did parents allow you?');
+    }
+}</pre>
+                </div>
+                
+                <div class="solution">
+                    <h4>Version avec opérateur ternaire :</h4>
+                    <div class="code-container">
+<pre>function checkAge(age) {
+    return age > 18 ? true : confirm('Did parents allow you?');
+}</pre>
+                    </div>
+                    
+                    <h4>Version avec opérateur || :</h4>
+                    <div class="code-container">
+<pre>function checkAge(age) {
+    return age > 18 || confirm('Did parents allow you?');
+}</pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">
+                    <h3>Exercice 14 : Créer un calendrier</h3>
+                    <span class="difficulty hard">Difficile</span>
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Fonction createCalendar</span>
+                    </div>
+<pre>function createCalendar(elem, year, month) {
+    let date = new Date(year, month - 1, 1);
+    let table = '&lt;table&gt;&lt;tr&gt;';
+    
+    // En-têtes des jours
+    let days = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
+    for (let day of days) {
+        table += '&lt;th&gt;' + day + '&lt;/th&gt;';
+    }
+    table += '&lt;/tr&gt;&lt;tr&gt;';
+    
+    // Cases vides avant le premier jour
+    let firstDay = date.getDay();
+    if (firstDay === 0) firstDay = 7; // dimanche devient 7
+    for (let i = 1; i < firstDay; i++) {
+        table += '&lt;td&gt;&lt;/td&gt;';
+    }
+    
+    // Jours du mois
+    while (date.getMonth() === month - 1) {
+        table += '&lt;td&gt;' + date.getDate() + '&lt;/td&gt;';
+        
+        // Nouvelle ligne chaque dimanche
+        if (date.getDay() === 0) {
+            table += '&lt;/tr&gt;&lt;tr&gt;';
+        }
+        
+        // Jour suivant
+        date.setDate(date.getDate() + 1);
+    }
+    
+    table += '&lt;/tr&gt;&lt;/table&gt;';
+    elem.innerHTML = table;
+}</pre>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p><i class="fas fa-laptop-code"></i> Portfolio JavaScript - BTS SIO1</p>
+            <p>Les exercices sont installés sur le portfolio et prêts pour l'évaluation.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                <i class="fas fa-download"></i> 
+                <a href="#" style="color: var(--primary); text-decoration: none;">Télécharger tous les fichiers</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // Attendre que le DOM soit chargé
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation entre les onglets
+            document.querySelectorAll('.tab-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    // Retirer la classe active de tous les boutons
+                    document.querySelectorAll('.tab-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Ajouter la classe active au bouton cliqué
+                    button.classList.add('active');
+                    
+                    // Cacher toutes les sections
+                    document.querySelectorAll('.content-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Afficher la section correspondante
+                    const targetId = button.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+            
+            // Boutons de copie de code
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const codeBlock = this.parentElement.nextElementSibling;
+                    const textToCopy = codeBlock.textContent;
+                    
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            const originalText = this.textContent;
+                            this.textContent = 'Copié!';
+                            setTimeout(() => {
+                                this.textContent = originalText;
+                            }, 2000);
+                        }).catch(err => {
+                            console.error('Erreur de copie:', err);
+                            alert('Impossible de copier le texte');
+                        });
+                    } else {
+                        // Fallback pour les navigateurs plus anciens
+                        const textArea = document.createElement('textarea');
+                        textArea.value = textToCopy;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        try {
+                            document.execCommand('copy');
+                            const originalText = this.textContent;
+                            this.textContent = 'Copié!';
+                            setTimeout(() => {
+                                this.textContent = originalText;
+                            }, 2000);
+                        } catch (err) {
+                            console.error('Erreur de copie:', err);
+                            alert('Impossible de copier le texte');
+                        }
+                        document.body.removeChild(textArea);
+                    }
+                });
+            });
+            
+            // Initialisation
+            console.log("Portfolio JavaScript chargé avec succès!");
+        });
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
