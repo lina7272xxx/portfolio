@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="book" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccueilController">
+
+   <children>
+      <Label fx:id="isbn_lb" layoutX="62.0" layoutY="78.0" text="ISBN DU LIVRE" />
+      <Label fx:id="titre_lb" layoutX="59.0" layoutY="110.0" text="TITRE  DU LIVRE" />
+      <Label fx:id="px_lb" layoutX="63.0" layoutY="142.0" text="PRIX DU LIVRE" />
+      <TextField fx:id="isbn" layoutX="167.0" layoutY="74.0" />
+      <TextField fx:id="prix" layoutX="167.0" layoutY="138.0" />
+      <TextField fx:id="titre" layoutX="167.0" layoutY="106.0" />
+      <Button fx:id="ajouter" layoutX="167.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleAjouter" text="Ajouter" />
+      <Button fx:id="rechercher" layoutX="434.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleRechercher" text="Rechercher" />
+      <Text fx:id="nbre_livre" layoutX="49.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de livre :  0" />
+   </children>
+</AnchorPane>

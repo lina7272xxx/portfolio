@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comptes Rendus - Mme.Beauvallet Semestre 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-black: #121212;
+            --secondary-black: #1e1e1e;
+            --accent-black: #2d2d2d;
+            --text-light: #f1f1f1;
+            --accent-color: #e6007e;
+            --accent-hover: #ff3399;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-black);
+            color: var(--text-light);
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        .report-item {
+            background-color: var(--accent-black);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #444;
+        }
+        
+        .report-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+        
+        .report-item h4 {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .report-item h2 {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease; 
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: inline-block;
+            width: 300px;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 0, 126, 0.3);
+        }
+        
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.875rem;
+        }
+        
+        /* Barre de défilement personnalisée */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-black);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .report-item {
+                padding: 20px;
+            }
+            
+            .btn-primary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="report-item">
+                    <h4>BTS SIO</h4>
+                    <h2>Comptes rendus de TP - Mme.Beauvallet - Semestre 2</h2>
+                    <a href="TD2 Array List (2).pdf" class="btn btn-sm btn-primary">TD2 Array List </a>
+                    <a href="MainProjet.java" class="btn btn-sm btn-primary">TD2 Array List - Main</a>
+                    <a href="Livre.java" class="btn btn-sm btn-primary">TD2 Array List - Livre</a>
+                    <a href="Accueil.java" class="btn btn-sm btn-primary">TD2 Array List - Acceuil</a>
+                    <a href="Accueil.fxml" class="btn btn-sm btn-primary">TD2 Array List - Interface graphique </a>
+                    <a href="AccueilController.java" class="btn btn-sm btn-primary">TD2 Array List - Acceuil Controller</a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
